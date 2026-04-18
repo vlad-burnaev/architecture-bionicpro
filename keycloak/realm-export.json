@@ -64,6 +64,7 @@
         "realmRoles": ["administrator"]
       },
       {
+        "id": "1c8027a3-dc09-420a-a798-4fcea26bb5e3",
         "username": "prothetic1",
         "enabled": true,
         "email": "prothetic1@example.com",
@@ -79,6 +80,7 @@
         "realmRoles": ["prothetic_user"]
       },
       {
+        "id": "3d9147b2-ea11-4c9f-b61d-7789aabbcc02",
         "username": "prothetic2",
         "enabled": true,
         "email": "prothetic2@example.com",
@@ -113,10 +115,22 @@
       {
         "clientId": "reports-frontend",
         "enabled": true,
+        "protocol": "openid-connect",
         "publicClient": true,
-        "redirectUris": ["http://localhost:3000/*"],
-        "webOrigins": ["http://localhost:3000"],
-        "directAccessGrantsEnabled": true
+        "standardFlowEnabled": true,
+        "implicitFlowEnabled": false,
+        "directAccessGrantsEnabled": true,
+        "redirectUris": [
+          "http://localhost:3000",
+          "http://localhost:3000/*",
+          "http://localhost:3000/silent-check-sso.html"
+        ],
+        "webOrigins": [
+          "http://localhost:3000"
+        ],
+        "attributes": {
+          "pkce.code.challenge.method": "S256"
+        }
       },
       {
         "clientId": "reports-api",
